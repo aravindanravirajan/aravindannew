@@ -14,6 +14,8 @@ import com.example.demo.model.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 
 	Optional<User> findBystudentName(String name);
+
+
 	
 
 }

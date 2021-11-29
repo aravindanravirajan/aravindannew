@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,4 +41,9 @@ public class Controller {
 	public Optional<User> getAllUser(@PathVariable String name) {
 		return userService.getquery(name);
 	}
-}
+	@PostMapping("/insert")
+		public List<User> insert(@RequestBody Integer id,String name,Date dob,String dept,Integer age) {
+			return userService.insertall(id,name,dob,dept,age);
+			
+		}
+	}

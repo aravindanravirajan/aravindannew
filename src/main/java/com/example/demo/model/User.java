@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -21,7 +22,7 @@ public class User {
 	@Column(name = "student_name")
 	private String studentName;
 	@Column(name = "date_of_birth")
-    private String dateOfBirth;
+    private Date dateOfBirth;
 	@Column(name = "Department")
     private String dept;
     @Column(name = "Age")
@@ -41,7 +42,7 @@ public class User {
 				+ ", age=" + age + ", userAddress=" + userAddress + "]";
 	}
 
-	public User(Integer id, String studentName, String dateOfBirth, String dept, Integer age,
+	public User(Integer id, String studentName, Date dateOfBirth, String dept, Integer age,
 			List<Address> userAddress) {
 		super();
 		this.id = id;
@@ -68,12 +69,12 @@ public class User {
 		this.studentName = studentName;
 	}
 
-	public String getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(String dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public void setDateOfBirth(Date dob) {
+		this.dateOfBirth = dob;
 	}
 
 	public String getDept() {
@@ -88,7 +89,7 @@ public class User {
 		return age;
 	}
 
-	public void setAge(Integer age) {
+	public  void setAge(Integer age) {
 		this.age = age;
 	}
 

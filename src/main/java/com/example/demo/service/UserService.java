@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.util.Date;
 import java.util.List;
 
 import java.util.Optional;
@@ -36,5 +37,15 @@ public class UserService {
 
 	public List<Address> getaddress(Integer city) {
 		return Addressrepo.findByAddressid(city);
+	}
+	public List<User> insertall(Integer id, String name, Date dob, String dept, Integer age) {
+		User user = new User();
+		user.setAge(age);
+		user.setId(id);
+		user.setDateOfBirth(dob);
+		user.setDept(dept);
+		user.setStudentName(name);
+	return userRepository.findAll();
+		
 	}
 }
