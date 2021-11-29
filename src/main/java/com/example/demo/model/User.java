@@ -5,8 +5,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -16,7 +14,7 @@ import javax.persistence.Table;
 @Table(name = "student")
 public class User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "Person_Id")
     private Integer id;
 	@Column(name = "student_name")
@@ -27,7 +25,7 @@ public class User {
     private String dept;
     @Column(name = "Age")
     private Integer age;
-    @OneToMany
+   @OneToMany
     @JoinColumn(name="studentid", nullable=false, updatable = false, insertable = false)
     private List<Address> userAddress;
     
@@ -39,7 +37,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "user [id=" + id + ", studentName=" + studentName + ", dateOfBirth=" + dateOfBirth + ", dept=" + dept
-				+ ", age=" + age + ", userAddress=" + userAddress + "]";
+				+ ", age=" + age + ", userAddress=" + userAddress+ "]";
 	}
 
 	public User(Integer id, String studentName, Date dateOfBirth, String dept, Integer age,

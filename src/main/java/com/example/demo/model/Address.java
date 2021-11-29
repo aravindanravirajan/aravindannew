@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name = "user_address")
 public class Address {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer addressid;
 	private String cityname;
 	private String statename;
@@ -28,23 +28,12 @@ public class Address {
 	public Integer getaddressid() {
 		return addressid;
 	}
-
-	
-
-	
-
 	public void setAddressid(Integer addressid) {
 		this.addressid = addressid;
 	}
-
-	
-
-	
-
 	public Integer getStudentid() {
 		return studentid;
 	}
-
 	public void setStudentid(Integer studentid) {
 		this.studentid = studentid;
 	}
@@ -96,4 +85,10 @@ public class Address {
 		this.streetname = streetname;
 		
 	}
+
+
+
+
+
+	
 }

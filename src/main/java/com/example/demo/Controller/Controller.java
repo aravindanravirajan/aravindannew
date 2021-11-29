@@ -1,6 +1,5 @@
 package com.example.demo.Controller;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,9 +21,9 @@ public class Controller {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping("/getit/{id}")
-	public Optional<User> fecthAll(@PathVariable Integer id) {
-		return userService.fetchAllRecords(id);
+	@GetMapping("/getit")
+	public List<User> fecthAll() {
+		return userService.fetchAllRecords();
 	}
 
 	@PostMapping("/insertage/{Name}")
@@ -36,14 +35,16 @@ public class Controller {
 	public List<Address> getAllAddress(@PathVariable Integer city) {
 		return userService.getaddress(city);
 	}
-
-	@GetMapping("/user/{name}")
+    @GetMapping("/user/{name}")
 	public Optional<User> getAllUser(@PathVariable String name) {
 		return userService.getquery(name);
 	}
 	@PostMapping("/insert")
-		public List<User> insert(@RequestBody Integer id,String name,Date dob,String dept,Integer age) {
-			return userService.insertall(id,name,dob,dept,age);
-			
-		}
+		public List<User> insert(@RequestBody List<User> user) {
+			return userService.insertall(user);
+			}
+	@PostMapping("/address")
+	public List<Address> inserts(@RequestBody List<Address> address){
+		return userService.insertaddr(address);
+	}
 	}
