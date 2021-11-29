@@ -17,4 +17,5 @@ public interface addressrepo extends JpaRepository<Address, Long> {
 //	    		 List<Address> finda();
             List<Address> findByCityname(String city);
             List<Address> findByAddressid(Integer addressid);
+            List<Address> findByStudentid(Integer studentid);
 }

@@ -20,12 +20,21 @@ public class UserService {
 	private UserRepository userRepository;
 	@Autowired
 	private addressrepo Addressrepo;
+	@Autowired
+	private User user;
 
-	public List<User> fetchAllRecords() {
-		return userRepository.findAll();
+	public Integer fetchAllRecords() {
+		List<User> check = userRepository.findAll();
+	
+		 System.out.println(check.add(2,user.studentName));
+		 return 2;
+		
+		//return userRepository.findAll();
+		
 	}
         public User setage(String name, Integer age) {
 		Optional<User> saved = userRepository.findBystudentName(name);
+		
 		saved.get().setAge(age);
 		return userRepository.save(saved.get());
 	}
@@ -40,9 +49,12 @@ public class UserService {
 	userRepository.saveAll(user);
 	return userRepository.findAll();
 	}
-	public List<Address> insertaddr(List<Address> address) {
-		Addressrepo.saveAll(address);
-		return Addressrepo.findAll();
-	}
+	//public List<Address> insertaddr(List<Address> address,Integer studentid) {
+		
+		//List<Address> saves  = Addressrepo.findByStudentid(studentid);
+		
+		//Addressrepo.saveAll(address);
+		//return Addressrepo.findAll();
+	//}
 }
 

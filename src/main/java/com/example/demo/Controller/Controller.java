@@ -22,7 +22,7 @@ public class Controller {
 	private UserService userService;
 
 	@GetMapping("/getit")
-	public List<User> fecthAll() {
+	public Integer fecthAll() {
 		return userService.fetchAllRecords();
 	}
 
@@ -35,16 +35,24 @@ public class Controller {
 	public List<Address> getAllAddress(@PathVariable Integer city) {
 		return userService.getaddress(city);
 	}
-    @GetMapping("/user/{name}")
+  /*  @GetMapping("/user/{name}")
 	public Optional<User> getAllUser(@PathVariable String name) {
-		return userService.getquery(name);
-	}
+         Optional<User> a = userService.getquery(name);
+         a.getClass(User.getStudentName());
+         }
 	@PostMapping("/insert")
 		public List<User> insert(@RequestBody List<User> user) {
 			return userService.insertall(user);
 			}
-	@PostMapping("/address")
-	public List<Address> inserts(@RequestBody List<Address> address){
-		return userService.insertaddr(address);
+	@PostMapping("/address/{studentid}")
+	public List<Address> inserts(@RequestBody List<Address> address,@PathVariable Integer studentid){
+		return userService.insertaddr(address,studentid);
 	}
+
+	
+	@GetMapping("/new")
+	public String news() {
+		String a = "Aravindan";
+		return a;
+	}*/
 	}
