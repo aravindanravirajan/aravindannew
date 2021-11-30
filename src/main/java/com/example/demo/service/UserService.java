@@ -3,6 +3,7 @@ package com.example.demo.service;
 import java.util.List;
 
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -20,14 +21,17 @@ public class UserService {
 	private UserRepository userRepository;
 	@Autowired
 	private addressrepo Addressrepo;
-	@Autowired
-	private User user;
-
-	public Integer fetchAllRecords() {
-		List<User> check = userRepository.findAll();
 	
-		 System.out.println(check.add(2,user.studentName));
-		 return 2;
+	public User fetchAllRecords(Integer id) {
+		Optional<User> check = userRepository.findById(id);
+      	//Optional<User>  check1=userRepository.findById(id);
+           List<User> check1 =check.stream().collect(Collectors.toList());
+      	System.out.println(check1);
+      	 // System.out.println(check2.getStudentName());
+        	return check1.get(1);
+        
+  
+		
 		
 		//return userRepository.findAll();
 		

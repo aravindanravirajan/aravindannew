@@ -21,9 +21,9 @@ public class Controller {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping("/getit")
-	public Integer fecthAll() {
-		return userService.fetchAllRecords();
+	@GetMapping("/getit/{id}")
+	public List<User> fecthAll(@PathVariable Integer id) {
+		return userService.fetchAllRecords(id);
 	}
 
 	@PostMapping("/insertage/{Name}")
