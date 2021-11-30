@@ -25,9 +25,9 @@ public class User {
     private String dept;
     @Column(name = "Age")
     private Integer age;
-   @OneToMany
+  @OneToMany
     @JoinColumn(name="studentid", nullable=false, updatable = false, insertable = false)
-    private List<Address> userAddress;
+   private List<Address> userAddress;
     
 	public User() {
 		super();
@@ -37,7 +37,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "user [id=" + id + ", studentName=" + studentName + ", dateOfBirth=" + dateOfBirth + ", dept=" + dept
-				+ ", age=" + age + ", userAddress=" + userAddress+ "]";
+				+ ", age=" + age + ", userAddress=" + userAddress+"]";
 	}
 
 	public User(Integer id, String studentName, Date dateOfBirth, String dept, Integer age,
@@ -95,7 +95,7 @@ public class User {
 		return userAddress;
 	}
 
-	public void setUserAddress(List<Address> userAddress) {
+public void setUserAddress(List<Address> userAddress) {
 		this.userAddress = userAddress;
 	}
 }

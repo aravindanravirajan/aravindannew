@@ -3,9 +3,9 @@ package com.example.demo.model;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,26 +17,28 @@ public class Address {
 	private String cityname;
 	private String statename;
 	private String streetname;
-	private Integer studentid;
-//	@OneToMany
-  //  @JoinColumn(name="forginekey", nullable=false, updatable = false, insertable = false)
-  //  private List<User> user;
+	//@ManyToOne
+	//@JoinColumn(name="Person_Id, nullable=false, updatable = false, insertable = false")
+	//private Integer studentid;
+	
+	
 	
 	
 	
 
+	
 	public Integer getaddressid() {
 		return addressid;
 	}
 	public void setAddressid(Integer addressid) {
 		this.addressid = addressid;
 	}
-	public Integer getStudentid() {
-		return studentid;
-	}
-	public void setStudentid(Integer studentid) {
-		this.studentid = studentid;
-	}
+	//public Integer getStudentid() {
+	//	return studentid;
+	//}
+	//public void setStudentid(Integer studentid) {
+		//this.studentid = studentid;
+	//}
 
 	public String getCityname() {
 		return cityname;
@@ -64,9 +66,9 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return "Address [addressid=" + addressid + ", studentid=" + studentid + ", cityname=" + cityname
+		return "Address [addressid=" + addressid + ", studentid=" +/* studentid +*/ ", cityname=" + cityname
 				+ ", statename=" + statename + ", streetname=" + streetname + ", getAddressid()=" + getaddressid()
-				+ ", getStudentid()=" + getStudentid() + ", getCityname()=" + getCityname() + ", getStatename()="
+				+ ", getStudentid()=" +/* getStudentid() +*/ ", getCityname()=" + getCityname() + ", getStatename()="
 				+ getStatename() + ", getStreetname()=" + getStreetname() + ", getClass()=" + getClass()
 				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
@@ -79,7 +81,7 @@ public class Address {
 	public Address(Integer addressid, Integer studentid, String cityname, String statename, String streetname ,List<User> user)  {
 		super();
 		this.addressid = addressid;
-		this.studentid = studentid;
+		//this.studentid = studentid;
 		this.cityname = cityname;
 		this.statename = statename;
 		this.streetname = streetname;

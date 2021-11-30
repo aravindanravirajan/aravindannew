@@ -16,49 +16,51 @@ import com.example.demo.model.User;
 
 @Service
 public class UserService {
-	
+
 	@Autowired
 	private UserRepository userRepository;
 	@Autowired
 	private addressrepo Addressrepo;
-	
+	//method i tried of doing
 	public User fetchAllRecords(Integer id) {
 		Optional<User> check = userRepository.findById(id);
-      	//Optional<User>  check1=userRepository.findById(id);
-           List<User> check1 =check.stream().collect(Collectors.toList());
-      	System.out.println(check1);
-      	 // System.out.println(check2.getStudentName());
-        	return check1.get(1);
-        
-  
-		
-		
-		//return userRepository.findAll();
-		
-	}
-        public User setage(String name, Integer age) {
+
+		List<User> check1 = check.stream().collect(Collectors.toList());
+		User check2 = check1.get(0);
+
+		System.out.println(check1);
+
+		return check2;
+    	}
+	// method i tried of doing
+	public User setage(String name, Integer age) {
 		Optional<User> saved = userRepository.findBystudentName(name);
-		
 		saved.get().setAge(age);
 		return userRepository.save(saved.get());
 	}
 
+	// method i tried of doing
 	public Optional<User> getquery(String name) {
 		return userRepository.findBystudentName(name);
 	}
+
+	// method i tried of doing
 	public List<Address> getaddress(Integer city) {
 		return Addressrepo.findByAddressid(city);
 	}
-	public List<User> insertall(List<User> user){
-	userRepository.saveAll(user);
-	return userRepository.findAll();
-	}
-	//public List<Address> insertaddr(List<Address> address,Integer studentid) {
-		
-		//List<Address> saves  = Addressrepo.findByStudentid(studentid);
-		
-		//Addressrepo.saveAll(address);
-		//return Addressrepo.findAll();
-	//}
-}
 
+	// method i tried of doing
+	public List<User> insertall(List<User> user) {
+		userRepository.saveAll(user);
+		return userRepository.findAll();
+	}
+	//method of the task one to many
+	public List<Address> insertaddr(List<Address> address, Integer studentid) {
+		Addressrepo.saveAll(address);
+	     return Addressrepo.findByStudentid(studentid);
+	}
+	public List<Address> getmany() {
+	    Addressrepo.findAll();
+		return null;
+	}
+}
