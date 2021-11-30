@@ -63,6 +63,7 @@ public class Controller {
 	public List<Address> many(){
 		return userService.getmany();
 	}
+	//task many to one.
 	@GetMapping("/many/{id}")
 	public List<Address> manys(@PathVariable Integer id){
 		return userService.getmanys(id);

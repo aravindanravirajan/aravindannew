@@ -26,77 +26,66 @@ public class User {
     private String dept;
     @Column(name = "Age")
     private Integer age;
-    // @ManyToOne
-    // @JoinColumn(name="studentid", nullable=false, updatable = false, insertable = false)
-  // private Address userAddress;
-    
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
+     @OneToMany
+    @JoinColumn(name="studentid", nullable=false, updatable = false, insertable = false)
+   private List<Address> address;
+	public Integer getId() {
+		return id;
 	}
-
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getStudentName() {
+		return studentName;
+	}
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+	public String getDept() {
+		return dept;
+	}
+	public void setDept(String dept) {
+		this.dept = dept;
+	}
+	public Integer getAge() {
+		return age;
+	}
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+	public List<Address> getAddress() {
+		return address;
+	}
+	public void setAddress(List<Address> address) {
+		this.address = address;
+	}
 	@Override
 	public String toString() {
-		return "user [id=" + id + ", studentName=" + studentName + ", dateOfBirth=" + dateOfBirth + ", dept=" + dept
-				+ ", age=" + age + ", userAddress=" + /*userAddress+*/"]";
+		return "User [id=" + id + ", studentName=" + studentName + ", dateOfBirth=" + dateOfBirth + ", dept=" + dept
+				+ ", age=" + age + ", address=" + address + ", getId()=" + getId() + ", getStudentName()="
+				+ getStudentName() + ", getDateOfBirth()=" + getDateOfBirth() + ", getDept()=" + getDept()
+				+ ", getAge()=" + getAge() + ", getAddress()=" + getAddress() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
-
-	public User(Integer id, String studentName, Date dateOfBirth, String dept, Integer age,
-			Address userAddress) {
+	public User(Integer id, String studentName, Date dateOfBirth, String dept, Integer age, List<Address> address) {
 		super();
 		this.id = id;
 		this.studentName = studentName;
 		this.dateOfBirth = dateOfBirth;
 		this.dept = dept;
 		this.age = age;
-//		this.userAddress = userAddress;
+		this.address = address;
 	}
-
-	public Integer getId() {
-		return id;
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getStudentName() {
-		return studentName;
-	}
-
-	public void setStudentName(String studentName) {
-		this.studentName = studentName;
-	}
-
-	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
-
-	public void setDateOfBirth(Date dob) {
-		this.dateOfBirth = dob;
-	}
-
-	public String getDept() {
-		return dept;
-	}
-
-	public void setDept(String dept) {
-		this.dept = dept;
-	}
-
-	public Integer getAge() {
-		return age;
-	}
-
-	public  void setAge(Integer age) {
-		this.age = age;
-	}
-
-//	public Address getUserAddress() {
-	//	return userAddress;
-//	}/
-
-//public void setUserAddress(Address userAddress) {
-	//	this.userAddress = userAddress;
-	//}
-}
+     }
+    
+	
