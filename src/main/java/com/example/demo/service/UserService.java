@@ -21,7 +21,8 @@ public class UserService {
 	private UserRepository userRepository;
 	@Autowired
 	private addressrepo Addressrepo;
-	//method i tried of doing
+
+	// method i tried of doing
 	public User fetchAllRecords(Integer id) {
 		Optional<User> check = userRepository.findById(id);
 
@@ -31,7 +32,8 @@ public class UserService {
 		System.out.println(check1);
 
 		return check2;
-    	}
+	}
+
 	// method i tried of doing
 	public User setage(String name, Integer age) {
 		Optional<User> saved = userRepository.findBystudentName(name);
@@ -54,14 +56,17 @@ public class UserService {
 		userRepository.saveAll(user);
 		return userRepository.findAll();
 	}
-	//method of the task one to many
+
+	// method of the task one to many
 	public List<Address> insertaddr(List<Address> address, Integer studentid) {
 		Addressrepo.saveAll(address);
-	     return Addressrepo.findByStudentid(studentid);
+		return Addressrepo.findByStudentid(studentid);
 	}
+
 	public List<Address> getmany() {
-	   return Addressrepo.findAll();
+		return Addressrepo.findAll();
 	}
+
 	public List<Address> getmanys(Integer id) {
 		return Addressrepo.findByStudentid(id);
 
