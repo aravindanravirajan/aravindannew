@@ -60,7 +60,10 @@ public class UserService {
 	     return Addressrepo.findByStudentid(studentid);
 	}
 	public List<Address> getmany() {
-	    Addressrepo.findAll();
-		return null;
+	   return Addressrepo.findAll();
+	}
+	public List<Address> getmanys(Integer id) {
+		return Addressrepo.findByStudentid(id);
+
 	}
 }

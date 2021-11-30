@@ -63,5 +63,9 @@ public class Controller {
 	public List<Address> many(){
 		return userService.getmany();
 	}
+	@GetMapping("/many/{id}")
+	public List<Address> manys(@PathVariable Integer id){
+		return userService.getmanys(id);
+	}
 	
 }

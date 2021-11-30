@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,9 +26,9 @@ public class User {
     private String dept;
     @Column(name = "Age")
     private Integer age;
-  @OneToMany
-    @JoinColumn(name="studentid", nullable=false, updatable = false, insertable = false)
-   private List<Address> userAddress;
+    // @ManyToOne
+    // @JoinColumn(name="studentid", nullable=false, updatable = false, insertable = false)
+  // private Address userAddress;
     
 	public User() {
 		super();
@@ -37,18 +38,18 @@ public class User {
 	@Override
 	public String toString() {
 		return "user [id=" + id + ", studentName=" + studentName + ", dateOfBirth=" + dateOfBirth + ", dept=" + dept
-				+ ", age=" + age + ", userAddress=" + userAddress+"]";
+				+ ", age=" + age + ", userAddress=" + /*userAddress+*/"]";
 	}
 
 	public User(Integer id, String studentName, Date dateOfBirth, String dept, Integer age,
-			List<Address> userAddress) {
+			Address userAddress) {
 		super();
 		this.id = id;
 		this.studentName = studentName;
 		this.dateOfBirth = dateOfBirth;
 		this.dept = dept;
 		this.age = age;
-		this.userAddress = userAddress;
+//		this.userAddress = userAddress;
 	}
 
 	public Integer getId() {
@@ -91,11 +92,11 @@ public class User {
 		this.age = age;
 	}
 
-	public List<Address> getUserAddress() {
-		return userAddress;
-	}
+//	public Address getUserAddress() {
+	//	return userAddress;
+//	}/
 
-public void setUserAddress(List<Address> userAddress) {
-		this.userAddress = userAddress;
-	}
+//public void setUserAddress(Address userAddress) {
+	//	this.userAddress = userAddress;
+	//}
 }
