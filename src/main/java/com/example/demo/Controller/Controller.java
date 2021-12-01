@@ -15,7 +15,7 @@ import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 
 @RestController
-@RequestMapping("/main")
+@RequestMapping("/main)
 public class Controller {
 
 	@Autowired
