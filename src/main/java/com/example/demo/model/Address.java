@@ -19,7 +19,7 @@ public class Address {
 	private String streetname;
 	private Integer studentid;
 	//@ManyToOne
-	//@JoinColumn(name = "studentid", nullable = false, updatable = false, insertable = false)
+	@JoinColumn(name = "studentid", nullable = false, updatable = false, insertable = false)
 	//private User user;
 
 	public Integer getAddressid() {

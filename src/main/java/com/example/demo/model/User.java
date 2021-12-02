@@ -26,7 +26,7 @@ public class User {
     private String dept;
     @Column(name = "Age")
     private Integer age;
-     @OneToMany
+    @OneToMany
     @JoinColumn(name="studentid", nullable=false, updatable = false, insertable = false)
    private List<Address> address;
 	public Integer getId() {

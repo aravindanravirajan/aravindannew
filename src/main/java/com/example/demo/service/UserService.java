@@ -23,11 +23,11 @@ public class UserService {
 	private addressrepo Addressrepo;
 
 	// method i tried of doing
-	public User fetchAllRecords(Integer id) {
+	public Boolean fetchAllRecords(String dept,Integer id) {
 		Optional<User> check = userRepository.findById(id);
 
 		List<User> check1 = check.stream().collect(Collectors.toList());
-		User check2 = check1.get(0);
+		 Boolean check2 = check1.contains(dept="dept");
 
 		System.out.println(check1);
 

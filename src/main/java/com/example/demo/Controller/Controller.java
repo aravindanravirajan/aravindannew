@@ -22,9 +22,9 @@ public class Controller {
 	private UserService userService;
 
 //method for learning 
-	@GetMapping("/getit/{id}")
-	public User fecthAll(@PathVariable Integer id) {
-		return userService.fetchAllRecords(id);
+	@GetMapping("/getit/{dept}/{id}")
+	public Boolean fecthAll(@PathVariable String dept, @PathVariable Integer id) {
+		return userService.fetchAllRecords(dept,id);
 	}
 
 //method for learning 
@@ -63,7 +63,8 @@ public class Controller {
 	public List<Address> many(){
 		return userService.getmany();
 	}
-	//task many to one.
+
+//task many to one.
 	@GetMapping("/many/{id}")
 	public List<Address> manys(@PathVariable Integer id){
 		return userService.getmanys(id);
